@@ -1,0 +1,14 @@
+#!/bin/sh
+
+{{ if eq .chezmoi.os "darwin" -}}
+# Check and Setup ZSH
+ch -s $(which zsh)
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# Install Powerlevel10k them
+destdir="${HOME}/.oh-my-zsh/custom/themes/powerlevel10k"
+rm -rf ${destdir}
+mkdir -p ${destdir}
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
+{{ end -}}

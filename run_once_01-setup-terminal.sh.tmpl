@@ -1,0 +1,13 @@
+#!/bin/sh
+
+{{ if eq .chezmoi.os "darwin" -}}
+# Terminal
+brew cask install iTerm2
+
+# Install Homebrew Fonts
+brew tap homebrew/cask-fonts
+brew install --cask font-hack-nerd-font
+brew install --cask font-fira-code-nerd-font
+
+{{ end -}}
+
